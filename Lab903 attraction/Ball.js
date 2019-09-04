@@ -1,9 +1,13 @@
 class Ball{
-  constructor(x, y, dx, dy){
+  constructor(x, y, dx, dy, id){
     this.loc = createVector(x, y)
     this.vel = createVector(dx, dy)
     this.acc = createVector(0, 0)
     this.clr = color(random(255), random(255), random(255));
+    this.w = 15
+    this.id = id
+    if(this.id < 0){this.w = 50}
+
   }
 
   run(){
@@ -28,32 +32,32 @@ class Ball{
     }
 }
   update(){
-    var distToBigFella;
+    var distTobigFella;
     this.vel.add(this.acc)
-    this.loc.add(this.vel)
     if(this.id >= 0){
       distTobigFella = this.loc.dist(bigFella.loc);
       if(distTobigFella < 250){
         // attraction
         this.acc = p5.Vector.sub(bigFella.loc, this.loc);
         this.acc.normalize();
-        this.acc.mult(0.1);
+        this.acc.mult(0.25);
       }
       if(distTobigFella < 150){
-        // attraction
+        // repulsion
         this.acc = p5.Vector.sub(this.loc, bigFella.loc);
         this.acc.normalize();
         this.acc.mult(0.5);
       }
     }
-
+    this.loc.add(this.vel);
+    this.vel.limit(5);
     // this.x = this.x + this.dx;
     // this.y = this.y + this.dy;
   }
   render(){
     fill(this.clr);
-    for(var i = 0; i < 50; i++){ // Middle condition should be same as loadBalls
-      ellipse(this.loc.x, this.loc.y, 15, 15)
+    for(var i = 0; i < 150; i++){ // Middle condition should be same as loadBalls
+      ellipse(this.loc.x, this.loc.y, this.w, this.w)
       // ellipse(this.x, this.y, random(20, 100), random(20, 100)), triangle(this.x, this.y, random(20, 100), random(20,100)), square(this.x, this.y, random(20, 100), random(20, 100)
     }
   }
