@@ -40,13 +40,13 @@ class Ball{
         // attraction
         this.acc = p5.Vector.sub(bigFella.loc, this.loc);
         this.acc.normalize();
-        this.acc.mult(0.25);
+        this.acc.mult(0.3);
       }
       if(distTobigFella < 150){
         // repulsion
         this.acc = p5.Vector.sub(this.loc, bigFella.loc);
         this.acc.normalize();
-        this.acc.mult(0.5);
+        this.acc.mult(0.75);  
       }
     }
     this.loc.add(this.vel);
@@ -56,9 +56,6 @@ class Ball{
   }
   render(){
     fill(this.clr);
-    for(var i = 0; i < 150; i++){ // Middle condition should be same as loadBalls
-      ellipse(this.loc.x, this.loc.y, this.w, this.w)
-      // ellipse(this.x, this.y, random(20, 100), random(20, 100)), triangle(this.x, this.y, random(20, 100), random(20,100)), square(this.x, this.y, random(20, 100), random(20, 100)
-    }
+    ellipse(this.loc.x, this.loc.y, this.w, this.w)
   }
 }

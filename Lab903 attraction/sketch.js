@@ -1,6 +1,6 @@
 // Garrett Faure
 // 09/03
-var balls=[];
+var balls = [];
 var bigFella;
 
 // setup runs once at the start of your program
@@ -9,16 +9,16 @@ function setup(){
 var cnv = createCanvas(800, 800);
 cnv.position((windowWidth-width)/2, 30);
 background(20, 20, 20);// background color
-loadBalls(150); // change class to loadBalls to equivalent
+loadBalls(2000); // change class to loadBalls to equivalent
 // Draw FPS (rounded to 2 decimal places) at the bottom left of the screen
-let fps = frameRate();
-fill(255);
-stroke(0);
-text("FPS: " + fps.toFixed(2), 10, height - 10);
+// let fps = frameRate();
+// fill(255);
+// stroke(0);
+// text("FPS: " + fps.toFixed(2), 10, height - 10);
 }
 
 function loadBalls(n){
-  bigFella = new Ball(width/2, height/2, random(-1, 1), random(-1, 1), -1)
+  bigFella = new Ball(width/2, height/2, random(-2.5, 2.5), random(-2.5, 2.5), -1)
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(height), 3, 3, i)
   }
