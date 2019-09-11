@@ -64,6 +64,11 @@ class Ball{
   }
   render(){
     fill(this.clr);
-    ellipse(this.loc.x, this.loc.y, this.w, this.w)
+    triangle(this.loc.x, this.loc.y, this.w, this.w)
+    push()
+        translate(this.loc.x, this.loc.y);
+        rotate(this.angle);
+        triangle(-5, 8, 5, 8, 0, -8);
+      pop();
   }
 }

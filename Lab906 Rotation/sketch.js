@@ -9,7 +9,7 @@ function setup(){
 var cnv = createCanvas(800, 800);
 cnv.position((windowWidth-width)/2, 30);
 background(20, 20, 20);// background color
-loadBalls(2000); // change class to loadBalls to equivalent
+loadBalls(100); // change class to loadBalls to equivalent
 // Draw FPS (rounded to 2 decimal places) at the bottom left of the screen
 // let fps = frameRate();
 // fill(255);
