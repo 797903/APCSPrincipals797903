@@ -6,11 +6,11 @@ class Ball{
     this.clr = color(random(255), random(255), random(255));
     this.w = 15
     this.id = id
-    if(this.id < 0){this.w = 50}
-
+    if(this.id < 0){
+      this.w = 50}
   }
 
-  run(){
+  run(){ 
     this.checkEdges();
     this.update();
     this.render();
