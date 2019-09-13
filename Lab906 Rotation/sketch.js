@@ -19,14 +19,14 @@ loadBalls(100); // change class to loadBalls to equivalent
 }
 
 function loadBalls(n){
-  // bigFella = new Ball(width/2, height/2, random(-2.5, 2.5), random(-2.5, 2.5), -1)
+  bigFella = new Ball(width/2, height/2, random(-2.5, 2.5), random(-2.5, 2.5), -1)
   for(var i = 0; i < n; i++){
     ships[i] = new ship(random(width), random(height), 3, 3, i)
   }
 }
 
 function runBalls(){
-  //bigFella.run();
+  bigFella.run();
   for(var i = 0; i < ships.length; i++){
     ships[i].run();
   }

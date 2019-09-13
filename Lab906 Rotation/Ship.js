@@ -6,6 +6,7 @@ class ship{
     this.clr = color(random(255), random(255), random(255));
     this.w = 15
     this.id = id
+    this.angle = this.loc.dist(bigFella.loc);
     if(this.id < 0){this.w = 50}
 
   }
@@ -40,23 +41,23 @@ class ship{
   }
 }
   update(){
-    // var distTobigFella;
-    // this.vel.add(this.acc)
-    // if(this.id >= 0){
-    //   distTobigFella = this.loc.dist(bigFella.loc);
-    //   if(distTobigFella < 250){
-    //     // attraction
-    //     this.acc = p5.Vector.sub(bigFella.loc, this.loc);
-    //     this.acc.normalize();
-    //     this.acc.mult(0.1);
-    //   }
-    //   if(distTobigFella < 150){
-    //     // repulsion
-    //     this.acc = p5.Vector.sub(this.loc, bigFella.loc);
-    //     this.acc.normalize();
-    //     this.acc.mult(0.5);
-    //   }
-    // }
+    var distTobigFella;
+    this.vel.add(this.acc)
+    if(this.id >= 0){
+      distTobigFella = this.loc.dist(bigFella.loc);
+      if(distTobigFella < 250){
+        // attraction
+        this.acc = p5.Vector.sub(bigFella.loc, this.loc);
+        this.acc.normalize();
+        this.acc.mult(0.1);
+      }
+      if(distTobigFella < 150){
+        // repulsion
+        this.acc = p5.Vector.sub(this.loc, bigFella.loc);
+        this.acc.normalize();
+        this.acc.mult(0.5);
+      }
+    }
     this.loc.add(this.vel);
     this.vel.limit(5);
     // this.x = this.x + this.dx;
@@ -64,11 +65,11 @@ class ship{
   }
   render(){
     fill(this.clr);
-    triangle(this.loc.x, this.loc.y, this.w, this.w)
-    push()
-        translate(this.loc.x, this.loc.y);
-        rotate(this.angle);
-        triangle(-5, 8, 5, 8, 0, -8);
-      pop();
+    this.angle = this.angle+0.1;
+    push();
+    translate(this.loc.x, this.loc.y);
+  rotate(this.angle);
+    triangle(-5, 8, 5, 8, 0, -8);
+    pop();
   }
 }
