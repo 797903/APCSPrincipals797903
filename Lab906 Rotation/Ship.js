@@ -18,13 +18,12 @@ class ship{
   }
 
   checkEdges(){
-    if(this.id < 0){
-      if(this.loc.x < 0) this.loc.x = width
-      if(this.loc.x > width) this.loc.x = 0
-      if(this.loc.y < 0) this.loc.y = height
-      if(this.loc.y > height) this.loc.y = 0
-    }
-    if(this.id >=0){
+    // if(this.id < 0){
+    //   if(this.loc.x < 0) this.loc.x = width
+    //   if(this.loc.x > width) this.loc.x = 0
+    //   if(this.loc.y < 0) this.loc.y = height
+    //   if(this.loc.y > height) this.loc.y = 0
+    // }
       if(this.loc.x < 0){
         this.vel.x = -this.vel.x
       }
@@ -39,10 +38,9 @@ class ship{
         this.loc.y = height - 2
     }
   }
-}
+
   update(){
     var distTobigFella;
-    this.vel.add(this.acc)
     if(this.id >= 0){
       distTobigFella = this.loc.dist(bigFella.loc);
       if(distTobigFella < 250){
@@ -58,6 +56,7 @@ class ship{
         this.acc.mult(0.5);
       }
     }
+    this.vel.add(this.acc)
     this.loc.add(this.vel);
     this.vel.limit(5);
     // this.x = this.x + this.dx;
@@ -65,10 +64,10 @@ class ship{
   }
   render(){
     fill(this.clr);
-    this.angle = this.angle+0.1;
+    this.angle = this.vel.heading() + PI/2
     push();
     translate(this.loc.x, this.loc.y);
-  rotate(this.angle);
+    rotate(this.angle);
     triangle(-5, 8, 5, 8, 0, -8);
     pop();
   }
