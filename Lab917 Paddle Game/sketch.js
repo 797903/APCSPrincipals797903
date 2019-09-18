@@ -1,8 +1,7 @@
 // Garrett Faure
-// 09/12
-var ships = [];
+// 09/17
+var n = [];
 var balls = [];
-var bigFella;
 
 // setup runs once at the start of your program
 function setup(){
@@ -10,7 +9,7 @@ function setup(){
 var cnv = createCanvas(800, 800);
 cnv.position((windowWidth-width)/2, 30);
 background(20, 20, 20);// background color
-loadBalls(100); // change class to loadBalls to equivalent
+loadBalls(5); // change class to loadBalls to equivalent
 // Draw FPS (rounded to 2 decimal places) at the bottom left of the screen
 // let fps = frameRate();
 // fill(255);
@@ -19,21 +18,17 @@ loadBalls(100); // change class to loadBalls to equivalent
 }
 
 function loadBalls(n){
-  bigFella = new Ball(width/2, height/2, random(-2.5, 2.5), random(-2.5, 2.5), -1)
   for(var i = 0; i < n; i++){
-    ships[i] = new ship(random(width), random(height), 3, 3, i)
+    balls[i] = new Ball(random(width), random(height), 3, 3, i)
   }
 }
 
 function runBalls(){
-  bigFella.run();
-  for(var i = 0; i < ships.length; i++){
-    ships[i].run();
+  for(var i = 0; i < balls.length; i++){
   }
 }
 
 // Draw runs 30 times a second
 function draw() {
   background(20, 20, 20);
-  runBalls();
 }
