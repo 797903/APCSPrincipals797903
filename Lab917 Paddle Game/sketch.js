@@ -2,6 +2,7 @@
 // 09/17
 var n = [];
 var balls = [];
+var p1;
 
 // setup runs once at the start of your program
 function setup(){
@@ -27,6 +28,10 @@ function runBalls(){
   for(var i = 0; i < balls.length; i++){
   }
 }
+
+p1 = new Paddle(200, 300, 600)
+
+p1.run()
 
 // Draw runs 30 times a second
 function draw() {
