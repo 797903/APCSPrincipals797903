@@ -29,7 +29,7 @@ function runBalls(){
   }
 }
 
-p1 = new Paddle(200, 300, 600)
+p1 = new Paddle(700, 400)
 
 p1.run()
 
