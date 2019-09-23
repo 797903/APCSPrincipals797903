@@ -29,11 +29,15 @@ function runBalls(){
   }
 }
 
-p1 = new Paddle(700, 400)
-
-p1.run()
+function loadPaddle(){
+  paddle = new Paddle(500, 500)
+  }
 
 // Draw runs 30 times a second
 function draw() {
   background(20, 20, 20);
+}
+
+function runPaddle(){
+  paddle.run()
 }
