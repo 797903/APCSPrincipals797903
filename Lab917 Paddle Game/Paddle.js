@@ -12,13 +12,14 @@ class Paddle{
     this.render()
   }
 
+  render(){
+    fill(this.clr)
+    rect(this.x, this.y, 20, 20)
+  }
+
   update(){
     var mouseLoc = createVector(mouseX, 700);
     this.loc = p5.Vector.lerp(this.loc, mouseLoc, 0.09);
   }
 
-  render(){
-    fill(this.clr)
-    rect(this.x, this.y, 20, 20)
-  }
 }

@@ -3,6 +3,10 @@
 var n = [];
 var balls = [];
 var p1;
+var gameState1
+var gameState2
+var gameState3
+
 
 // setup runs once at the start of your program
 function setup(){
@@ -18,6 +22,7 @@ loadBalls(5); // change class to loadBalls to equivalent
 // text("FPS: " + fps.toFixed(2), 10, height - 10);
 }
 
+
 function loadBalls(n){
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width), random(height), 3, 3, i)
@@ -25,19 +30,18 @@ function loadBalls(n){
 }
 
 function runBalls(){
-  for(var i = 0; i < balls.length; i++){
+  for(var i = 0; i < {{{{{{{}}}}}}}; i++){
+    for(var i = 0; i = balls.length;)
   }
-}
-
-function loadPaddle(){
-  paddle = new Paddle(500, 500)
-  }
-
-// Draw runs 30 times a second
-function draw() {
-  background(20, 20, 20);
 }
 
 function runPaddle(){
-  paddle.run()
+paddle.run()
+}
+// Draw runs 30 times a second
+function draw() {
+  background(20, 20, 20);
+  runPaddle();
+  runBalls();
+
 }
