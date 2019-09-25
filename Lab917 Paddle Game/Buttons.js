@@ -1,12 +1,14 @@
 class Buttons
 
-constructor(x1, y1, x2, y2, x3, y3){
-  this.x1 = x1
-  this.y1 = y1
-  this.x2 = x2
-  this.y2 = y2
-  this.x3 = x3
-  this.y3 = y3
+constructor(x, y, w, h, msg, clr){
+  this.loc = createVector(x, y);
+  this.w = w;
+  this.h = h;
+  this.message = msg;
+  this.clr = clr
 }
 
-rect()
+render(){
+  fill(this.clr);
+  rect(this.loc.x, this.loc.y, this.w, this.h, this.message, this.clr)
+}

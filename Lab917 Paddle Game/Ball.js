@@ -17,44 +17,44 @@ class Ball{
   }
 
   checkEdges(){
-    if(this.id < 0){
-      if(this.loc.x < 0) this.loc.x = width
-      if(this.loc.x > width) this.loc.x = 0
-      if(this.loc.y < 0) this.loc.y = height
-      if(this.loc.y > height) this.loc.y = 0
+    // if(this.id < 0){
+    //   if(this.loc.x < 0) this.loc.x = width
+    //   if(this.loc.x > width) this.loc.x = 0
+    //   if(this.loc.y < 0) this.loc.y = height
+    //   if(this.loc.y > height) this.loc.y = 0
+    //}
+    if(this.id >=0){
+      if(this.loc.x < 0){
+        this.vel.x = -this.vel.x
+      }
+      if(this.loc.x > width){
+        this.vel.x = -this.vel.x
+      }
+      if(this.loc.y < 0){
+        this.vel.y = -this.vel.y
+      }
+      if(this.loc.y > height){
+        this.vel.y = -this.vel.y
+        this.loc.y = height - 2
     }
-    // if(this.id >=0){
-    //   if(this.loc.x < 0){
-    //     this.vel.x = -this.vel.x
-    //   }
-    //   if(this.loc.x > width){
-    //     this.vel.x = -this.vel.x
-    //   }
-    //   if(this.loc.y < 0){
-    //     this.vel.y = -this.vel.y
-    //   }
-    //   if(this.loc.y > height){
-    //     this.vel.y = -this.vel.y
-    //     this.loc.y = height - 2
-    // }
   }
   update(){
-    var distTobigFella;
-    this.vel.add(this.acc)
-    if(this.id >= 0){
-      distTobigFella = this.loc.dist(bigFella.loc);
-      if(distTobigFella < 250){
-        // attraction
-        this.acc = p5.Vector.sub(bigFella.loc, this.loc);
-        this.acc.normalize();
-        this.acc.mult(0.1);
-      }
-      if(distTobigFella < 150){
-        // repulsion
-        this.acc = p5.Vector.sub(this.loc, bigFella.loc);
-        this.acc.normalize();
-        this.acc.mult(0.5);
-      }
+    // var distTobigFella;
+    // this.vel.add(this.acc)
+    // if(this.id >= 0){
+    //   distTobigFella = this.loc.dist(bigFella.loc);
+    //   if(distTobigFella < 250){
+    //     // attraction
+    //     this.acc = p5.Vector.sub(bigFella.loc, this.loc);
+    //     this.acc.normalize();
+    //     this.acc.mult(0.1);
+    //   }
+    //   if(distTobigFella < 150){
+    //     // repulsion
+    //     this.acc = p5.Vector.sub(this.loc, bigFella.loc);
+    //     this.acc.normalize();
+    //     this.acc.mult(0.5);
+    //   }
     }
     this.loc.add(this.vel);
     this.vel.limit(5);
