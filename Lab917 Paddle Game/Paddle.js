@@ -1,6 +1,5 @@
 class Paddle{
   constructor(x, y){
-
     this.loc = createVector(0, -1)
     this.clr = (random(255), random(255), random(255))
     this.loc.x = x
@@ -8,8 +7,8 @@ class Paddle{
   }
 
   run(){
-    this.update()
     this.render()
+    this.update()
   }
 
   render(){
