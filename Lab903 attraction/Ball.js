@@ -10,7 +10,7 @@ class Ball{
       this.w = 50}
   }
 
-  run(){ 
+  run(){
     this.checkEdges();
     this.update();
     this.render();
@@ -23,8 +23,9 @@ class Ball{
     if(this.loc.x > width){
       this.vel.x = -this.vel.x
     }
-    if(this.loc.y < 0){
-      this.vel.y = -this.vel.y
+    //comment out the bounce off bottom
+    // if(this.loc.y < 0){
+    //   this.vel.y = -this.vel.y
     }
     if(this.loc.y > height){
       this.vel.y = -this.vel.y
@@ -32,23 +33,23 @@ class Ball{
     }
 }
   update(){
-    var distTobigFella;
-    this.vel.add(this.acc)
-    if(this.id >= 0){
-      distTobigFella = this.loc.dist(bigFella.loc);
-      if(distTobigFella < 250){
-        // attraction
-        this.acc = p5.Vector.sub(bigFella.loc, this.loc);
-        this.acc.normalize();
-        this.acc.mult(0.3);
-      }
-      if(distTobigFella < 150){
-        // repulsion
-        this.acc = p5.Vector.sub(this.loc, bigFella.loc);
-        this.acc.normalize();
-        this.acc.mult(0.75);  
-      }
-    }
+    // var distTobigFella;
+    // this.vel.add(this.acc)
+    // if(this.id >= 0){
+    //   distTobigFella = this.loc.dist(bigFella.loc);
+    //   if(distTobigFella < 250){
+    //     // attraction
+    //     this.acc = p5.Vector.sub(bigFella.loc, this.loc);
+    //     this.acc.normalize();
+    //     this.acc.mult(0.3);
+    //   }
+    //   if(distTobigFella < 150){
+    //     // repulsion
+    //     this.acc = p5.Vector.sub(this.loc, bigFella.loc);
+    //     this.acc.normalize();
+    //     this.acc.mult(0.75);
+    //   }
+    // }
     this.loc.add(this.vel);
     this.vel.limit(5);
     // this.x = this.x + this.dx;
