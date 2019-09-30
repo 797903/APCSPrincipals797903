@@ -38,6 +38,7 @@ class Ball{
         this.loc.y = height - 2
     }
   }
+}
   update(){
     // var distTobigFella;
     // this.vel.add(this.acc)
@@ -55,7 +56,7 @@ class Ball{
     //     this.acc.normalize();
     //     this.acc.mult(0.5);
     //   }
-    }
+
     this.loc.add(this.vel);
     this.vel.limit(5);
     // this.x = this.x + this.dx;

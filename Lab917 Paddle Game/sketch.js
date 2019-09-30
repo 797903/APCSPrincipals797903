@@ -4,7 +4,7 @@ var n;
 var balls = [];
 var p1;
 var gameState = 0;
-var btnEasy, btnMed, btnHard, btnTitle;
+var btnEasy, btnMed, btnHard, btnTitle, btnEnd, btnReset;
 var score;
 var life;
 
@@ -25,7 +25,7 @@ btnHard = new Buttons(550, 650, 50, 50, "Sicko \n Mode", RGB(random(255)));
 // Draw runs 30 times a second
 function draw(){
   background(255, 255, 255);
-  if gameState = 0{
+  if(gameState = 0){
     titleScreen.run();
   }
   if(mouseX >= 200 &&
@@ -64,11 +64,17 @@ function draw(){
 // Number of balls based on the skill level
 
 function endGame(){
-  new Buttons
+  if(gameState === 4){
+  if(life === 0){
+    background(20, 20, 20);
+    btnEnd = new Buttons(350, 100, 100, 50, "YOU LOST! D:", RGB(random(255)));
+    btnReset = new Buttons(375, 400, 50, 50, "Start Again?", RBG(random(255)));
+    }
+  }
 }
 
 function titleScreen(){
-  btnTitle.run()
+  btnTitle.run();
   btnEasy.run();
   btnMed.run();
   btnHard.run();
@@ -85,7 +91,7 @@ paddle.run();
 }
 
 function startGame(){
-  life = 75
+  life = 30
   n = 10;
   loadBalls(n);
   for(var i = 0; i < balls.length - 1; console.log(i)){
@@ -94,7 +100,7 @@ function startGame(){
 }
 
 function playGame(){
-  life = 50
+  life = 20
   n = 15;
   loadBalls(n);
   for(var i = 0; balls < balls.length - 1; console.log(i)){
@@ -103,7 +109,7 @@ function playGame(){
 }
 
 function sickoGame(){
-  life = 25
+  life = 10
   n = 20;
   loadBalls(n);
   for(var i = 0; balls < balls.length - 1; console.log(i)){
@@ -121,6 +127,5 @@ function loadBalls(n){
 for(var i = balls.length - 1; i >= 0; i--){
   if(balls[i] < windowHeight){
     balls.splice(i, 1);
-
   }
 }
