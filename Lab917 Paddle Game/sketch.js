@@ -39,11 +39,11 @@ function draw(){
   mouseY >= 700 &&
   mouseY <= 650){
     gameState === 2;
-  }  if(mouseX >= 600 &&
+  } if(mouseX >= 600 &&
     mouseX <= 650 &&
     mouseY >= 700 &&
     mouseY <= 650){
-      gameState === 3;
+    gameState === 3;
     }
     if(gameState === 1){
     startGame();
@@ -129,3 +129,5 @@ for(var i = balls.length - 1; i >= 0; i--){
     balls.splice(i, 1);
   }
 }
+
+// nothing likes to work :)
