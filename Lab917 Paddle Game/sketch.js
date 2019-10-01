@@ -80,7 +80,7 @@ function titleScreen(){
   btnHard.run();
 }
 
-function runBalls(n){
+runBalls(){
   for(var i = 0; i < n; i++){
   balls[i] = new Ball(random(width), random(height), 3, 3, i)
   }
