@@ -24,5 +24,5 @@ function selectionSort(list){
     list[i] = list[min];
     list[min] = temp;
   }
-  console.list;
+  console.log(list);
 }
