@@ -18,11 +18,7 @@ function setup(){
   // put start code here
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  //loadBalls();
-  // Buttons for game selection (except title will not be able to be clicked)
-
   initGame();
-
 }
 
 // Draw runs 30 times a second
@@ -60,10 +56,17 @@ function titleScreen(){
 }
 
 function startGame(){
-
-
-  if(balls.length <= 0){
+  if(gameState === 1 &&
+    balls.length <= 0){
     loadBalls(n++)
+  }
+  if(gameState === 2 &&
+    balls.length <= 0){
+    loadBalls(n+=2)
+  }
+  if(gameState === 3 &&
+    balls.length <= 0){
+    loadBalls(n+=3)
   }
   paddle.run();
   for(var i = 0; i < balls.length; i++){
@@ -83,6 +86,8 @@ function endGame(){
       background(20, 20, 20);
       btnEnd = new Buttons(350, 100, 100, 50, "YOU LOST! D:", r, g, b);
       btnReset = new Buttons(375, 400, 50, 50, "Start Again?", r, g, b);
+      btnEnd.run();
+      btnReset.run();
     }
   }
 }
@@ -101,7 +106,7 @@ function sickoGame(){
   n = 20;
   loadBalls(n);
   if(balls.length <= 0){
-    loadBalls(n+=5)
+    loadBalls(n+=3)
   }
 }
 
@@ -110,10 +115,6 @@ function loadBalls(n){
     balls[i] = new Ball(random(width), random(height), 3, 3, i);
   }
 }
-
-
-
-
 
 function mouseClicked(){
   if(gameState === 0){//  title screen

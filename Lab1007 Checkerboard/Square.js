@@ -1,5 +1,5 @@
 Constructor(x, y, clr){
-  this.loc =
-  this.clr = random(RGB)
+  this.loc = createVector(x, y)
+  this.clr = clr
 
 }
