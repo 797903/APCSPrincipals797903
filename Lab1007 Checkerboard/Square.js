@@ -1,17 +1,18 @@
 class Square{
-  Constructor(x, y, clr){
+  Constructor(x, y, w, h, clr){
     this.loc = createVector(x, y);
     this.clr = clr;
-    this.x = x;
-    this.y = y;
+    this.w = w;
+    this.h = h;
   }
 
   run(){
-    this.render()
+    this.render();
+    this.update();
   }
 
   render(){
     fill(this.clr)
-    rect(this.x, this.y, 20, 20)
+    rect(this.loc.x, this.loc.y, this.w, this.h);
   }
-}
+} //end
