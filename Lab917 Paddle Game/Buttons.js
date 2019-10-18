@@ -16,4 +16,14 @@ class Buttons{
     fill(this.clr);
     rect(this.loc.x, this.loc.y, this.w, this.h, this.message, this.clr)
   }
-}
+
+  buttonIsClicked(){
+    if (mouseIsPressed && mouseX >
+      this.loc.x && mouseX <
+      this.loc.x+this.w && mouseY >
+      this.loc.y && mouseY <
+      this.loc.y + this.h){
+        return true;
+      }
+    }
+  }

@@ -26,120 +26,93 @@ function setup(){
 function draw(){
   background(255, 255, 255);
 
-
   if(gameState === 0){
     titleScreen.run();
-  }
-  if(mouseX >= 200 &&
-    mouseX <= 250 &&
-    mouseY >= 700 &&
-    mouseY <= 650){
-      gameState = 1;
-    }
-    if(mouseX >= 375 &&
-      mouseX <= 425 &&
-      mouseY >= 700 &&
-      mouseY <= 650){
-        gameState = 2;
+  } if(gameState === 1){
+    startGame();
+    runPaddle();
+    runBalls();
+  } else if(gameState === 2){
+    playGame();
+    runPaddle();
+    runBalls();
+  } else if(gameState === 3){
+    sickoGame();
+    runPaddle();
+    runBalls();
+  } else if(gameState === 4){
+    endGame();
       }
+    }
+  }
+  // Number of balls based on the skill level
 
-      if(mouseX >= 600 &&
-        mouseX <= 650 &&
-        mouseY >= 700 &&
-        mouseY <= 650){
-          gameState = 3;
-        }
-        if(gameState === 1){
-          startGame();
-          runPaddle();
-          runBalls();
-        } else if(gameState === 2){
-          playGame();
-          runPaddle();
-          runBalls();
-        } else if(gameState === 3){
-          sickoGame();
-          runPaddle();
-          runBalls();
-        } else if(gameState === 4){
-          endGame();
-          if (mouseX >= 375 &&
-            mouseX <= 425 &&
-            mouseY >= 100 &&
-            mouseY <= 200){
-              gameState === 0
-            }
-          }
-        }
-        // Number of balls based on the skill level
+  function titleScreen(){
+    btnTitle.run();
+    btnEasy.run();
+    btnMed.run();
+    btnHard.run();
+  }
 
-        function endGame(){
-          if(gameState === 4){
-            if(life === 0){
-              background(20, 20, 20);
-              btnEnd = new Buttons(350, 100, 100, 50, "YOU LOST! D:", RGB(random(255)));
-              btnReset = new Buttons(375, 400, 50, 50, "Start Again?", RBG(random(255)));
-            }
-          }
-        }
+  function runBalls(){
+    for(var i = 0; i < n; i++){
+      balls[i] = new Ball(random(width), random(height), 3, 3, i)
+    }
+  }
 
-        function titleScreen(){
-          btnTitle.run();
-          btnEasy.run();
-          btnMed.run();
-          btnHard.run();
-        }
+  function runPaddle(){
+    paddle.run();
+  }
 
-        function runBalls(){
-          for(var i = 0; i < n; i++){
-            balls[i] = new Ball(random(width), random(height), 3, 3, i)
-          }
-        }
+  function startGame(){
+    life = 30
+    n = 5;
+    loadBalls(n);
+    if(balls.length <== 0){
+      loadBalls(n++)
+    }
+  }
 
-        function runPaddle(){
-          paddle.run();
-        }
+  function playGame(){
+    life = 20
+    n = 8;
+    loadBalls(n);
+    if(balls.length <== 0){
+      loadBalls(n += 2)
+    }
+  }
 
-        function startGame(){
-          life = 30
-          n = 10;
-          loadBalls(n);
-          if(balls.length <== 0){
-            loadBalls(n++)
-          }
-        }
+  function sickoGame(){
+    life = 10
+    n = 10;
+    loadBalls(n);
+    if(balls.length <== 0){
+      loadBalls(n+=5)
+    }
+  }
 
-        function playGame(){
-          life = 20
-          n = 15;
-          loadBalls(n);
-          if(balls.length <== 0){
-            loadBalls(n += 2)
-          }
-        }
+  function loadBalls(n){
+    for(var i = 0; i < n; i++){
+      balls[i] = new Ball(random(width), random(height), 3, 3, i);
+    }
+  }
 
-        function sickoGame(){
-          life = 10
-          n = 20;
-          loadBalls(n);
-          if(balls.length <== 0){
-            loadBalls(n+=5)
-          }
-        }
+  // deleting Balls
+  function spliceBalls(){
+    for(var i = balls.length - 1; i >= 0; i--){
+      if(balls[i] < windowHeight){
+        balls.splice(i, 1);
+      }
+    }
+  }
 
-        function loadBalls(n){
-          for(var i = 0; i < n; i++){
-            balls[i] = new Ball(random(width), random(height), 3, 3, i);
-          }
-        }
-
-        // deleting Balls
-        function spliceBalls(){
-          for(var i = balls.length - 1; i >= 0; i--){
-            if(balls[i] < windowHeight){
-              balls.splice(i, 1);
-            }
-          }
-        }
-
-        // nothing likes to work :)
+  function endGame(){
+    if(gameState === 4){
+      if(life === 0){
+        background(20, 20, 20);
+        btnEnd = new Buttons(350, 100, 100, 50, "YOU LOST! D:", RGB(random(255)));
+        btnReset = new Buttons(375, 400, 50, 50, "Start Again?", RBG(random(255)));
+      }
+    }
+  }
+  // nothing likes to work :)
