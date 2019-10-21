@@ -9,7 +9,7 @@ var cnv = createCanvas(800, 800);
 cnv.position((windowWidth-width)/2, 30);
 background(200, 200, 200);// background color
 
-loadNum(10);
+loadNum(100);
 selectionSort(list);
 
 }
@@ -29,9 +29,9 @@ function selectionSort(list){
           min = q;
        }
     }
-    temp = list[i];
+    temp = list[i]; // swap after inner loop
     list[i] = list[min];
     list[min] = temp;
-  }
-  console.log(list);
+}
+console.log(list)
 }
