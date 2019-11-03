@@ -17,7 +17,9 @@ class comida{
     rect(this.loc.x, this.loc.y, this.s, this.s);
   }
 
-
+  move(){
+    
+  }
 
 
 }

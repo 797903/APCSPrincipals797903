@@ -10,6 +10,7 @@ class snake{
   run(){
     move();
     render();
+    checkEdges();
   }
 
   render(){
@@ -50,11 +51,15 @@ class snake{
   }
 
   checkEdges(){
+    var death = 0;
     if(this.loc.x < 0 or
       this.loc.x > windowWidth or
       this.loc.y < 0 or
       this.loc.y > windowHeight){
-
+        death = 1;
+        if(death === 1){
+          
+        }
     }
   }
 }
