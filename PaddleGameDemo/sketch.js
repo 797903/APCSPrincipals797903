@@ -18,6 +18,7 @@ function setup(){
   // put start code here
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
+  background(255, 255, 0);
   initGame();
 }
 
@@ -83,7 +84,7 @@ function startGame(){
 function endGame(){
   if(gameState === 4){
     if(life === 0){
-      background(20, 20, 20);
+      background(random(255), random(255), random(255));
       btnEnd = new Buttons(350, 100, 100, 50, "YOU LOST! D:", r, g, b);
       btnReset = new Buttons(375, 400, 50, 50, "Start Again?", r, g, b);
       btnEnd.run();
