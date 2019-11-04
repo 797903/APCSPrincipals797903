@@ -8,8 +8,8 @@ class snake{
   }
 
   run(){
-    move();
     render();
+    move();
     checkEdges();
   }
 
