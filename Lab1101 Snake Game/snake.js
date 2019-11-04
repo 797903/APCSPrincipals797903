@@ -14,7 +14,7 @@ class snake{
   }
 
   render(){
-    fill(this.clr);
+    fill(color(random(0, 255), random(0, 255), random(0, 255)));
     rect(this.loc.x, this.loc.y, this.s, this.s);
   }
 
@@ -58,7 +58,7 @@ class snake{
       this.loc.y > windowHeight){
         death = 1;
         if(death === 1){
-          
+
         }
     }
   }
