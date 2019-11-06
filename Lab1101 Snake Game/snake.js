@@ -1,53 +1,60 @@
 class snake{
   constructor(x, y, clr){
-    this.loc = createVector(x, y);
+    this.head = createVector(x, y);
     this.x = x;
     this.y = y;
-    this.clr = color(random(255));
-    this.s = 25
+    this.clr = color(0, 0, 0);
+    this.s = 25;
+    this.body = [];
   }
 
   run(){
     render();
     move();
     checkEdges();
+    thangle();
   }
 
   render(){
     fill(color(random(0, 255), random(0, 255), random(0, 255)));
-    rect(this.loc.x, this.loc.y, this.s, this.s);
+    rect(this.head.x, this.head.y, this.s, this.s);
   }
 
   move(){
     var moveDirect
     // up
     if(keycode === 87 || keycode === 38){
-      this.loc.y = this.loc.y + this.s;
+      this.head.y = this.head.y + this.s;
+      this.head.x = 0;
     }
     // down
     if(keycode === 83 || keycode === 40){
-      this.loc.y = this.loc.y - this.s;
+      this.head.y = this.head.y*-1;
+      this.head.x = 0;
     }
     // left
     if(keycode === 65 || keycode === 37){
-      this.loc.x = this.loc.x - this.s;
+      this.head.x = this.head.x*-1;
+      this.head.y = 0;
     }
     // right
     if(keycode === 68 || keycode === 39){
-        this.loc.x = this.loc.x - this.s;
+        this.head.x = this.head.x + this.s;
+        this.head.y = 0;
     }
+
   }
 
   checkEdges(){
-    var death = 0;
-    if(this.loc.x < 0 ||
-      this.loc.x > windowWidth ||
-      this.loc.y < 0 ||
-      this.loc.y > windowHeight){
-        death = 1;
-        if(death === 1){
-
-        }
-    }
+    // var death = 0;
+    // if(this.head.x < 0 ||
+    //   this.head.x > windowWidth ||
+    //   this.head.y < 0 ||
+    //   this.head.y > windowHeight){
+    //     death = 1;
+    //     if(death === 1){
+    //
+    //     }
+    // }
   }
 }
