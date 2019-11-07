@@ -16,8 +16,8 @@ class snake{
   }
 
   render(){
-    fill(color(random(0, 255), random(0, 255), random(0, 255)));
     rect(this.head.x, this.head.y, this.s, this.s);
+    fill(color(random(0, 255), random(0, 255), random(0, 255)));
   }
 
   move(){
@@ -57,4 +57,3 @@ class snake{
       }
     }
   }
-}
