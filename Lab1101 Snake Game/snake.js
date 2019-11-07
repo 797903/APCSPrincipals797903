@@ -46,15 +46,15 @@ class snake{
   }
 
   checkEdges(){
-    // var death = 0;
-    // if(this.head.x < 0 ||
-    //   this.head.x > windowWidth ||
-    //   this.head.y < 0 ||
-    //   this.head.y > windowHeight){
-    //     death = 1;
-    //     if(death === 1){
-    //
-    //     }
-    // }
+    if(this.head.x < 0 ||
+      this.head.x > windowWidth ||
+      this.head.y < 0 ||
+      this.head.y > windowHeight){
+        background(0, 0, 0);
+        textSize(75);
+        text("YOU DIED", 10, 30);
+        fill(255, 0, 0);
+      }
+    }
   }
 }
