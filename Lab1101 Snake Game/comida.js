@@ -1,4 +1,4 @@
-class comida{
+class Comida{
   constructor(x, y){
     this.loc = createVector(x, y);
     this.clr = color(random(255));

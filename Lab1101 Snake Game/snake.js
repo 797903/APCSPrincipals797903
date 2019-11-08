@@ -1,4 +1,4 @@
-class snake{
+class Snake{
   constructor(x, y, clr){
     this.head = createVector(x, y);
     this.x = x;
@@ -9,10 +9,10 @@ class snake{
   }
 
   run(){
-    render();
-    move();
-    checkEdges();
-    thangle();
+    this.render();
+    this.move();
+    // checkEdges();
+    // tangle();
   }
 
   render(){
@@ -23,37 +23,37 @@ class snake{
   move(){
     var moveDirect
     // up
-    if(keycode === 87 || keycode === 38){
+    if(keyCode === 87 || keyCode === 38){
       this.head.y = this.head.y + this.s;
       this.head.x = 0;
     }
     // down
-    if(keycode === 83 || keycode === 40){
+    if(keyCode === 83 || keyCode === 40){
       this.head.y = this.head.y*-1;
       this.head.x = 0;
     }
     // left
-    if(keycode === 65 || keycode === 37){
+    if(keyCode === 65 || keyCode === 37){
       this.head.x = this.head.x*-1;
       this.head.y = 0;
     }
     // right
-    if(keycode === 68 || keycode === 39){
+    if(keyCode === 68 || keyCode === 39){
         this.head.x = this.head.x + this.s;
         this.head.y = 0;
     }
 
   }
 
-  checkEdges(){
-    if(this.head.x < 0 ||
-      this.head.x > windowWidth ||
-      this.head.y < 0 ||
-      this.head.y > windowHeight){
-        background(0, 0, 0);
-        textSize(75);
-        text("YOU DIED", 10, 30);
-        fill(255, 0, 0);
-      }
-    }
+  // checkEdges(){
+  //   if(this.head.x < 0 ||
+  //     this.head.x > windowWidth ||
+  //     this.head.y < 0 ||
+  //     this.head.y > windowHeight){
+  //       background(0, 0, 0);
+  //       textSize(75);
+  //       text("YOU DIED", 10, 30);
+  //       fill(255, 0, 0);
+  //     }
+  //   }
   }
