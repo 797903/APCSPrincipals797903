@@ -1,59 +1,63 @@
 class Snake{
-  constructor(x, y, clr){
+  constructor(x, y, dx, dy, w, clr){
     this.head = createVector(x, y);
+    this.w = w;
     this.x = x;
     this.y = y;
-    this.clr = color(0, 0, 0);
+    this.clr = color(random(0, 255), random(0, 255), random(0, 255));
     this.s = 25;
     this.body = [];
+
   }
 
   run(){
     this.render();
     this.move();
-    // checkEdges();
+    this.checkEdges();
     // tangle();
   }
 
   render(){
     rect(this.head.x, this.head.y, this.s, this.s);
-    fill(color(random(0, 255), random(0, 255), random(0, 255)));
+    fill(this.clr);
   }
 
   move(){
     var moveDirect
     // up
     if(keyCode === 87 || keyCode === 38){
-      this.head.y = this.head.y + this.s;
-      this.head.x = 0;
+      this.head.y = this.head.y - this.s;
     }
     // down
     if(keyCode === 83 || keyCode === 40){
-      this.head.y = this.head.y*-1;
-      this.head.x = 0;
+      this.head.y = this.head.y + this.s;
     }
     // left
     if(keyCode === 65 || keyCode === 37){
-      this.head.x = this.head.x*-1;
-      this.head.y = 0;
+      this.head.x = this.head.x - this.s;
     }
     // right
     if(keyCode === 68 || keyCode === 39){
         this.head.x = this.head.x + this.s;
-        this.head.y = 0;
     }
-
   }
 
-  // checkEdges(){
-  //   if(this.head.x < 0 ||
-  //     this.head.x > windowWidth ||
-  //     this.head.y < 0 ||
-  //     this.head.y > windowHeight){
-  //       background(0, 0, 0);
-  //       textSize(75);
-  //       text("YOU DIED", 10, 30);
-  //       fill(255, 0, 0);
-  //     }
-  //   }
+  checkEdges(){
+    //left end
+    if(this.head.x < 0){
+      endSnake = 'yes';
+    }
+    if(this.head.x > windowWidth){
+      //right end
+      endSnake = 'yes';
+    }
+    if(this.head.y < 0){
+      //height end
+      endSnake = 'yes';
+    }
+    if(this.head.y > windowHeight){
+      //bottom end
+      endSnake = 'yes';
+    }
+  }
   }
