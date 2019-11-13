@@ -12,7 +12,7 @@ function setup(){
   frameRate(13);
   endSnake = 'no';
   snake = new Snake(400, 400, 10, 10, 25, color(random(0, 255), random(0, 255), random(0, 255)));
-  comida = new Comida(int(random(0, windowWidth)), int(random(0, windowHeight)), color(random(0, 255), random(0, 255), random(0, 255)))
+  comida = new Comida(int(random(0, 775)), int(random(0, 775)), color(random(0, 255), random(0, 255), random(0, 255)))
 }
 // Draw runs 30 times a second
 function draw(){
