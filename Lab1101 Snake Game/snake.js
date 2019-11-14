@@ -47,7 +47,7 @@ class Snake{
     if(this.head.x < 0){
       endSnake = 'yes';
     }
-    if(this.head.x > windowWidth){
+    if(this.head.x > 800){
       //right end
       endSnake = 'yes';
     }
@@ -55,7 +55,7 @@ class Snake{
       //height end
       endSnake = 'yes';
     }
-    if(this.head.y > windowHeight){
+    if(this.head.y > 800){
       //bottom end
       endSnake = 'yes';
     }
