@@ -11,6 +11,7 @@ function setup(){
   background(200, 200, 200);
   frameRate(13);
   endSnake = 'no';
+  // add grid interval to even out movement
   snake = new Snake(400, 400, 10, 10, 25, color(random(0, 255), random(0, 255), random(0, 255)));
   comida = new Comida(int(random(0, 775)), int(random(0, 775)), color(random(0, 255), random(0, 255), random(0, 255)))
 }
