@@ -13,7 +13,7 @@ function setup(){
   endSnake = 'no';
   // add grid interval to even out movement
   snake = new Snake(400, 400, 10, 10, 25, color(random(0, 255), random(0, 255), random(0, 255)));
-  comida = new Comida(int(random(0, 775)), int(random(0, 775)), color(random(0, 255), random(0, 255), random(0, 255)))
+  comida = new Comida(int(random(0, 31)*25), int(random(0, 31)*25), color(random(0, 255), random(0, 255), random(0, 255)))
 }
 // Draw runs 30 times a second
 function draw(){
