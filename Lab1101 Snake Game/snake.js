@@ -24,8 +24,8 @@ class Snake{
   }
 
   update(){
-    this.move.mult(this.w);
     this.head.add(this.move);
+    this.move.mult(this.w);
 
   }
 

@@ -22,6 +22,7 @@ function draw(){
 background(200, 200, 200);
 runSnake();
 runComida();
+keyPressed();
 
 
 if(endSnake === 'yes'){
