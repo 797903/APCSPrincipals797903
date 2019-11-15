@@ -1,19 +1,20 @@
 class Snake{
   constructor(x, y, dx, dy, w, clr){
     this.head = createVector(x, y);
+    this.vel = createVector(dx, dy);
     this.w = w;
     this.x = x;
     this.y = y;
     this.clr = color(random(0, 255), random(0, 255), random(0, 255));
     this.s = 25;
     this.body = [];
-
+    this.move = createVector(0,0);
   }
 
   run(){
-    this.render();
-    this.move();
+    this.update();
     this.checkEdges();
+    this.render();
     // tangle();
   }
 
@@ -22,24 +23,10 @@ class Snake{
     fill(this.clr);
   }
 
-  move(){
-    var moveDirect
-    // up
-    if(keyCode === 87 || keyCode === 38){
-      this.head.y = this.head.y - this.s;
-    }
-    // down
-    if(keyCode === 83 || keyCode === 40){
-      this.head.y = this.head.y + this.s;
-    }
-    // left
-    if(keyCode === 65 || keyCode === 37){
-      this.head.x = this.head.x - this.s;
-    }
-    // right
-    if(keyCode === 68 || keyCode === 39){
-        this.head.x = this.head.x + this.s;
-    }
+  update(){
+    this.move.mult(this.w);
+    this.head.add(this.move);
+
   }
 
   checkEdges(){
