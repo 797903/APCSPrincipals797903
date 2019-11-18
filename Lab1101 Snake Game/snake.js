@@ -1,14 +1,13 @@
 class Snake{
-  constructor(x, y, dx, dy, w, clr){
+  constructor(x, y, w, clr){
     this.head = createVector(x, y);
-    this.vel = createVector(dx, dy);
     this.w = w;
     this.x = x;
     this.y = y;
     this.clr = color(random(0, 255), random(0, 255), random(0, 255));
     this.s = 25;
     this.body = [];
-    this.move = createVector(0,0);
+    this.move = createVector(0, 0);
   }
 
   run(){

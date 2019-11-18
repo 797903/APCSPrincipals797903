@@ -28,7 +28,7 @@ keyPressed();
 if(endSnake === 'yes'){
     clear();
     background(0, 0, 0);
-    text('YOU DIED')
+    text('YOU DIED');
     fill(255, 10, 40);
 }
 
@@ -42,20 +42,19 @@ function runComida(){
 }
 
 function keyPressed(){
-  if(keyCode === 87 || keyCode === 38){// up
-    snake.vel = createVector(0,-1);
+  if(keyCode === 87){// up
+    snake.head.y -= 25;
   }
   // down
-  if(keyCode === 83 || keyCode === 40){
-    snake.vel = createVector(0,1);
+  if(keyCode === 83){
+    snake.head.y += 25;
   }
   // left
-  if(keyCode === 65 || keyCode === 37){
-    snake.vel = createVector(-1,0);
+  if(keyCode === 65){
+    snake.head.x -= 25;
   }
   // right
-  if(keyCode === 68 || keyCode === 39){
-    snake.vel = createVector(1,0);
+  if(keyCode === 68){
+    snake.head.x += 25;
   }
-
 }
