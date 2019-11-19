@@ -1,6 +1,7 @@
 class Snake{
-  constructor(x, y, w, clr){
+  constructor(x, y, dx, dy, w, clr){
     this.head = createVector(x, y);
+    this.vel = createVector(dx, dy);
     this.w = w;
     this.x = x;
     this.y = y;
@@ -25,7 +26,6 @@ class Snake{
   update(){
     this.head.add(this.move);
     this.move.mult(this.w);
-
   }
 
   checkEdges(){

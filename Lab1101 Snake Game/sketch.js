@@ -11,11 +11,11 @@ function setup(){
   numCol = width/snakeWidth;
   cnv.position((windowWidth-width)/2, 30);
   background(200, 200, 200);
-  frameRate(13);
+  frameRate(10);
   endSnake = 'no';
   // add grid interval to even out movement
   snake = new Snake(width/2, height/2, 0, 0, snakeWidth, color(random(0, 255), random(0, 255), random(0, 255)));
-  comida = new Comida(int(random(0, 775)), int(random(0, 775)), color(random(0, 255), random(0, 255), random(0, 255)))
+  comida = new Comida(int(random(0, 32))*25, int(random(0, 32))*25, color(random(0, 255), random(0, 255), random(0, 255)))
 }
 // Draw runs 30 times a second
 function draw(){
@@ -42,19 +42,19 @@ function runComida(){
 }
 
 function keyPressed(){
-  if(keyCode === 87){// up
+  if(keyCode === 38){// up
     snake.head.y -= 25;
   }
   // down
-  if(keyCode === 83){
+  if(keyCode === 40){
     snake.head.y += 25;
   }
   // left
-  if(keyCode === 65){
+  if(keyCode === 37){
     snake.head.x -= 25;
   }
   // right
-  if(keyCode === 68){
+  if(keyCode === 39){
     snake.head.x += 25;
   }
 }
