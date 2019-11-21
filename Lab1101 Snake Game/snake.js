@@ -11,9 +11,12 @@ class Snake{
     this.move = createVector(0, 0);
   }
 
+
+
   run(){
     this.update();
     this.checkEdges();
+    this.comidaCollision();
     this.render();
     // tangle();
   }
@@ -46,4 +49,11 @@ class Snake{
       endSnake = 'yes';
     }
   }
+
+  comidaCollision(){
+    if(this.head.x === comida.loc.x &&
+    this.head.y === comida.loc.y){
+      this.body.push(createVector(this.head.x, this.head.y));
+    }
   }
+}
