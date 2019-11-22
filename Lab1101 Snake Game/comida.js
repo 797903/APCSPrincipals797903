@@ -11,7 +11,7 @@ class Comida{
   }
 
   render(){
-    fill(this.clr);
+    fill(random(255), random(255), 0);
     rect(this.loc.x, this.loc.y, this.s, this.s);
   }
 

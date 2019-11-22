@@ -14,7 +14,7 @@ function setup(){
   frameRate(10);
   endSnake = 'no';
   // add grid interval to even out movement
-  snake = new Snake(width/2, height/2, 0, 0, snakeWidth, color(random(0, 255), random(0, 255), random(0, 255)));
+  snake = new Snake(16, 16, 0, 0, snakeWidth, color(random(0, 255), random(0, 255), random(0, 255)));
   comida = new Comida(int(random(0, 32))*25, int(random(0, 32))*25, color(random(0, 255), random(0, 255), random(0, 255)))
 }
 // Draw runs 30 times a second
@@ -28,8 +28,8 @@ keyPressed();
 if(endSnake === 'yes'){
     clear();
     background(0, 0, 0);
-    text('YOU DIED');
     fill(255, 10, 40);
+    text('YOU DIED');
 }
 
 }
@@ -43,18 +43,20 @@ function runComida(){
 
 function keyPressed(){
   if(keyCode === 38){// up
-    snake.head.y -= 25;
+    snake.vel = createVector(0, -1);
+    // snake.vel.x -= 0;
+    // snake.vel.y -= 25;
   }
   // down
   if(keyCode === 40){
-    snake.head.y += 25;
+    snake.vel = createVector(0, 1);
   }
   // left
   if(keyCode === 37){
-    snake.head.x -= 25;
+    snake.vel = createVector(-1, 0);
   }
   // right
   if(keyCode === 39){
-    snake.head.x += 25;
+    snake.vel = createVector(1, 0);
   }
 }

@@ -6,9 +6,9 @@ class Snake{
     this.x = x;
     this.y = y;
     this.clr = color(random(0, 255), random(0, 255), random(0, 255));
-    this.s = 25;
+    this.s = snakeWidth;
     this.body = [];
-    this.move = createVector(0, 0);
+    //this.move = createVector(0, 0);
   }
 
 
@@ -22,13 +22,14 @@ class Snake{
   }
 
   render(){
-    rect(this.head.x, this.head.y, this.s, this.s);
-    fill(this.clr);
+    fill(20, 200, 80);
+    rect(this.head.x*this.s, this.head.y*this.s, this.s, this.s);
+
   }
 
   update(){
-    this.head.add(this.move);
-    this.move.mult(this.w);
+    this.head.add(this.vel);
+
   }
 
   checkEdges(){
@@ -36,7 +37,7 @@ class Snake{
     if(this.head.x < 0){
       endSnake = 'yes';
     }
-    if(this.head.x > 800){
+    if(this.head.x > windowWidth){
       //right end
       endSnake = 'yes';
     }
