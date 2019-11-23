@@ -6,8 +6,8 @@ class Comida{
   }
 
   run(){
-    this.render();
     this.relocate();
+    this.render();
   }
 
   render(){
@@ -16,10 +16,11 @@ class Comida{
   }
 
   relocate(){
-    if(this.loc.x === snake.head.x &&
-      this.loc.y === snake.head.y){
-      this.loc.x = int(random(0, 32))*25
-      this.loc.y = int(random(0, 32))*25
+    if(this.loc.x === snake.head.x*25 &&
+      this.loc.y === snake.head.y*25){
+      this.loc.x = int(random(0, 32))*25;
+      this.loc.y = int(random(0, 32))*25;
+      score += 1;
     }
   }
 }
