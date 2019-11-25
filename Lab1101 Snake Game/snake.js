@@ -15,10 +15,9 @@ class Snake{
   run(){
     this.update();
     this.checkEdges();
-    // this.comidaCollision();
+    this.comidaCollision();
     // this.tangle();
     this.render();
-    console.log(this.body)
   }
 
   render(){
@@ -33,23 +32,28 @@ class Snake{
   update(){
     //vel
     this.head.add(this.vel);
-    if(this.body.length>0){
+    //add segments
+    if(this.head.x === comida.loc.x &&
+    this.head.y === comida.loc.y){
       for(var i=this.body.length-1; i>0; i--){
         this.body[i].x=this.body[i-1].x;
         this.body[i].y=this.body[i-1].y;
       }
+      if(this.body.length-1===0){
       //first segment to head
-      this.body[0].x=head.loc.x;
-      this.body[0].y=head.loc.y;
+      this.body[0].x=this.head.x;
+      this.body[0].y=this.head.y;
     }
   }
+}
+
 
   checkEdges(){
     //left end
     if(this.head.x < 0){
       endSnake = 1;
     }
-    if(this.head.x > 32){
+    if(this.head.x >= 32){
       //right end
       endSnake = 1;
     }
@@ -57,7 +61,7 @@ class Snake{
       //height end
       endSnake = 1;
     }
-    if(this.head.y > 32){
+    if(this.head.y >= 32){
       //bottom end
       endSnake = 1;
     }
@@ -77,10 +81,10 @@ class Snake{
   //     }
   //   }
   //
-  //   comidaCollision(){
-  //   if(this.head.x*25===comida.loc.x &&
-  //       this.head.y*25===comida.loc.y){
-  //         this.body.push(createVector(head.loc.x,head.loc.y));
-  //         }
-  //       }
+    comidaCollision(){
+    if(this.head.x*25===comida.loc.x &&
+        this.head.y*25===comida.loc.y){
+          this.body.push(createVector(this.head.x, this.head.y));
+          }
+        }
   }
