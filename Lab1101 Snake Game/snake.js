@@ -15,8 +15,8 @@ class Snake{
   run(){
     this.update();
     this.checkEdges();
+    this.tangle();
     this.comidaCollision();
-    // this.tangle();
     this.render();
   }
 
@@ -31,20 +31,18 @@ class Snake{
 
   update(){
     //vel
-    this.head.add(this.vel);
     //add segments
-    if(this.head.x === comida.loc.x &&
-    this.head.y === comida.loc.y){
+    if(this.body.length>0){
       for(var i=this.body.length-1; i>0; i--){
         this.body[i].x=this.body[i-1].x;
         this.body[i].y=this.body[i-1].y;
       }
-      if(this.body.length-1===0){
       //first segment to head
       this.body[0].x=this.head.x;
       this.body[0].y=this.head.y;
-    }
+
   }
+    this.head.add(this.vel);
 }
 
 
@@ -72,15 +70,15 @@ class Snake{
     }
   }
 
-  // tangle(){
-  //   for(var i = snake.body.length-1; i >= 0; i--){
-  //     if(snake.head.x === snake.body[i].x &&
-  //       snake.head.y === snake.body[i].y){
-  //         endSnake = 1;
-  //       }
-  //     }
-  //   }
-  //
+  tangle(){
+    for(var i=0; i<this.body.length; i++){
+      if(this.head.x === this.body[i].x &&
+        this.head.y === this.body[i].y){
+          endSnake = 1;
+        }
+      }
+    }
+
     comidaCollision(){
     if(this.head.x*25===comida.loc.x &&
         this.head.y*25===comida.loc.y){

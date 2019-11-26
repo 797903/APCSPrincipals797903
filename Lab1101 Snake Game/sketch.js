@@ -70,7 +70,7 @@ function keyPressed(){
   if(endSnake === 1 && keyCode === 32){
     score = 0;
   }
-  
+
     if(keyCode === 32){
         startGame = 1;
         endSnake = 0;
@@ -97,5 +97,6 @@ function keyPressed(){
     if(endSnake === 1){
       keyCode = 81;
       snake.vel = createVector(0, 0);
+      snake.body.length = 0;
     }
 }
