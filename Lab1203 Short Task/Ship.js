@@ -1,14 +1,14 @@
 class ship{
-  constructor(x, y, dx, dy, id){
+  constructor(x, y, dx, dy, id, clr){
     this.loc = createVector(x, y)
     this.vel = createVector(dx, dy)
     this.acc = createVector(0, 0)
-    this.clr = color(random(255), random(255), random(255));
+    this.clr = color(255, 255, 255);
     this.w = 15
     this.id = id
-    this.angle = this.loc.dist(bigFella.loc);
-    if(this.id < 0){this.w = 50}
-
+    if(this.id < 0){
+      this.w = 50
+    }
   }
 
   run(){
@@ -18,7 +18,6 @@ class ship{
   }
 
   checkEdges(){
-
       if(this.loc.x < 0){
         this.vel.x = -this.vel.x
       }
@@ -36,24 +35,16 @@ class ship{
 
   update(){
     var distTobigFella;
-    if(this.id >= 0){
       distTobigFella = this.loc.dist(bigFella.loc);
-      if(distTobigFella < 250){
+      if(distTobigFella < windowWidth){
         // attraction
         this.acc = p5.Vector.sub(bigFella.loc, this.loc);
         this.acc.normalize();
-        this.acc.mult(0.1);
+        this.acc.mult(0.08);
       }
-      if(distTobigFella < 150){
-        // repulsion
-        this.acc = p5.Vector.sub(this.loc, bigFella.loc);
-        this.acc.normalize();
-        this.acc.mult(0.5);
-      }
-    }
     this.vel.add(this.acc)
     this.loc.add(this.vel);
-    this.vel.limit(5);
+    this.vel.limit(4);
 
   }
   render(){

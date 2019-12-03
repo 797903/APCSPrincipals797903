@@ -23,20 +23,6 @@ class Ball{
       if(this.loc.y < 0) this.loc.y = height
       if(this.loc.y > height) this.loc.y = 0
     }
-    // if(this.id >=0){
-    //   if(this.loc.x < 0){
-    //     this.vel.x = -this.vel.x
-    //   }
-    //   if(this.loc.x > width){
-    //     this.vel.x = -this.vel.x
-    //   }
-    //   if(this.loc.y < 0){
-    //     this.vel.y = -this.vel.y
-    //   }
-    //   if(this.loc.y > height){
-    //     this.vel.y = -this.vel.y
-    //     this.loc.y = height - 2
-    // }
   }
   update(){
     var distTobigFella;
@@ -58,8 +44,7 @@ class Ball{
     }
     this.loc.add(this.vel);
     this.vel.limit(5);
-    // this.x = this.x + this.dx;
-    // this.y = this.y + this.dy;
+
   }
   render(){
     fill(this.clr);
