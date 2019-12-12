@@ -31,6 +31,7 @@ class ball{
     }
   }
 }
+
   update(){
     var distToShip;
     this.vel.add(this.acc)
